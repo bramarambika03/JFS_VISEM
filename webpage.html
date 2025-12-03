@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programming Language Inventor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+        }
+        .left-box {
+            width: 30%;
+        }
+        label {
+            font-weight: bold;
+        }
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+        }
+        .image-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-box img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid #ccc;
+            background: white;
+        }
+        .info-box {
+            width: 70%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <h1>Programming Language Inventor</h1>
+
+    <div class="container">
+        <div class="left-box">
+            <label for="inventorSelect">Select a Programming Language Inventor:</label>
+            <select id="inventorSelect" onchange="updateInventor()">
+                <option value="">-- Select --</option>
+                <option value="dennis">Dennis Ritchie (C)</option>
+                <option value="james">James Gosling (Java)</option>
+                <option value="guido">Guido van Rossum (Python)</option>
+                <option value="bjarne">Bjarne Stroustrup (C++)</option>
+                <option value="brendan">Brendan Eich (JavaScript)</option>
+                <option value="rasmus">Rasmus Lerdorf (PHP)</option>
+            </select>
+
+            <div class="image-box">
+                <img id="inventorImage" src="" alt="Inventor Image" />
+            </div>
+        </div>
+
+        <div class="info-box" id="infoBox">
+            <h2>Inventor Information</h2>
+            <p>Select an inventor to see details.</p>
+        </div>
+    </div>
+
+    <script>
+        function updateInventor() {
+            const value = document.getElementById("inventorSelect").value;
+            const img = document.getElementById("inventorImage");
+            const info = document.getElementById("infoBox");
+
+            // Default: all images circular
+            img.style.borderRadius = "50%";
+
+            if (value === "dennis") {
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/2/23/Dennis_Ritchie_2011.jpg";
+                info.innerHTML = `
+                    <h2>Dennis Ritchie</h2>
+                    <p>Inventor of the C programming language and co-creator of Unix at Bell Labs.</p>
+                `;
+            } 
+            else if (value === "james") {
+                img.src = "https://commons.wikimedia.org/wiki/File:James_Gosling_2005.jpg";
+                img.style.borderRadius = "0%"; // SQUARE IMAGE ONLY FOR JAMES
+                info.innerHTML = `
+                    <h2>James Gosling</h2>
+                    <p>Creator of Java and known as the Father of Java.</p>
+                `;
+            } 
+            else if (value === "guido") {
+                img.src = "https://upload.wikimedia.org/wikipedia/commons/6/66/Guido_van_Rossum_OSCON_2006.jpg";
+                info.innerHTML = `
+                    <h2>Guido van Rossum</h2>
+                    <p>Creator of Python, famous for its readability and ease of learning.</p>
+                `;
+            } 
+            else if (value === "bjarne") {
+                img.src = "https://commons.wikimedia.org/wiki/File:Bjarne-stroustrup_(cropped).jpg";
+                info.innerHTML = `
+                    <h2>Bjarne Stroustrup</h2>
+                    <p>Creator of C++, widely used in performance-critical applications.</p>
+                `;
+            } 
+            else if (value === "brendan") {
+                img.src = "http://commons.wikimedia.org/wiki/File:Brendan-Eich-20080310.jpg";
+                info.innerHTML = `
+                    <h2>Brendan Eich</h2>
+                    <p>Inventor of JavaScript, essential for interactive web development.</p>
+                `;
+            } 
+            else if (value === "rasmus") {
+                img.src = "http://commons.wikimedia.org/wiki/File:Rasmus_Lerdorf_(1).jpg";
+                info.innerHTML = `
+                    <h2>Rasmus Lerdorf</h2>
+                    <p>Creator of PHP, used widely for backend web development.</p>
+                `;
+            } 
+            else {
+                img.src = "";
+                info.innerHTML = `<h2>Inventor Information</h2><p>Select an inventor to see details.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+ 
